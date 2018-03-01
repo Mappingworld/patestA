@@ -18,7 +18,7 @@ int main(){
   int a,b,c;
   int i ;
   scanf("%d %d",&st,&num);
-  for(i = 0;i < num;i++){
+/*  for(i = 0;i < num;i++){
     scanf("%d %d %d",&a,&b,&c);
     m[a].addr = a;
     m[a].data = b;
@@ -28,6 +28,23 @@ int main(){
     if(q.find(b) != q.end()){
        m[a].x = 2;
        ji++;
+    }
+    else
+      q.insert(b);//函数名称忘记了，得看看
+  }
+ */
+  for(i = 0;i < num;i++){
+    scanf("%d %d %d",&a,&b,&c);
+    m[a].addr = a;
+    m[a].data = b;
+    m[a].next = c;
+  }
+   for(i = st;i != -1;i = m[i].next){
+     b = m[i].data;
+     if(b < 0)
+      b = -b;
+    if(q.find(b) != q.end()){
+       m[i].x = 2;
     }
     else
       q.insert(b);//函数名称忘记了，得看看
